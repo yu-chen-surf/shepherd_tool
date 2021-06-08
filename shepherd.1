@@ -1,0 +1,61 @@
+.\" shepherd(1) manpage
+.\"
+.\" Copyright (C) 2017 Len Brown
+.\"
+.\" Released under GPLv2
+.\"
+.TH SHEPHERD 8 "May 2017" "util-linux" "User Commands"
+.SH NAME
+shepherd \- ScHEduler helPER Daemon
+.SH SYNOPSIS
+.B shepherd
+[options]
+.IR command\  [ argument ...]
+.br
+.B shepherd
+[options]
+.SH DESCRIPTION
+.PP
+.B shepherd
+implements system-wide power-aware scheduling from a user-space daemon, using
+the thread affinity.
+.SH OPTIONS
+.BR \-d ,\  \-\-debug
+Enable verbose debugging output, repeat for even more...
+.TP
+.TP
+.BR \-h ,\  \-\-help
+Display version and help text and exit.
+.SH USAGE
+.TP
+Shepherd will fork into a daemon, unless invoked with --debug.
+.B shepherd
+.IR command\  [ arguments ]
+.TP
+You can also retrieve the CPU affinity of an existing task:
+.B shepherd \-p
+.I pid
+.TP
+Or set it:
+.B shepherd \-p
+.SH PERMISSIONS
+shepherd must run as root.
+.SH EXIT VALUE
+0 for success, non-zero for failure.
+.SH NOTES
+.pp
+.SH SEE ALSO
+.BR taskset (1),
+.BR sched_setaffinity (2),
+.BR sched_getaffinity (2)
+.sp
+See
+.SH AUTHOR
+Written by Len Brown
+.SH COPYRIGHT
+Copyright \(co 2017 Len Brown, Intel Corp.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+.SH AVAILABILITY
+The shepherd command is part of the util-linux package and is available from
+ftp://ftp.kernel.org/pub/linux/utils/util-linux/.
